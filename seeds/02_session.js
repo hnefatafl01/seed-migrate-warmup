@@ -1,10 +1,7 @@
-
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('session').del()
-    .then(function () {
+exports.seed = (knex, Promise) => {
+  return knex.raw("DELETE FROM session; ALTER SEQUENCE session_id_seq RESTART WITH 1")
+    .then(() => {
       return Promise.all([
-        // Inserts seed entries
         knex('session').insert({
           exercise: 'squat',
           sets: 3,

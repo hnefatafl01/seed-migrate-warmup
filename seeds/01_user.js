@@ -1,10 +1,6 @@
-
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('user').del()
-    .then(function () {
+exports.seed = (knex, Promise)=> {
+  return knex.raw("DELETE FROM \"user\"; ALTER SEQUENCE user_id_seq RESTART WITH 1").then(()=> {
       return Promise.all([
-        // Inserts seed entries
         knex('user').insert({
           email: 'kevin@email.com',
           password: 'do the things'
@@ -16,3 +12,19 @@ exports.seed = function(knex, Promise) {
       ]);
     });
 };
+
+
+
+exports.seed = (knex, Promise) => {
+
+    const users = [{
+      email: 'kevin.erick01@gmail.com',
+      password: 'ugly_duckling'
+    },
+    {
+      email: 'dillon@gmail.com',
+      password: 'steinman'
+    }]
+    return knex('user').insert(users)
+  
+}

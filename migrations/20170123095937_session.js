@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('session', (table)=> {
-    table.increments()
+    table.increments();
     table.text('exercise');
     table.integer('sets');
     table.integer('repetitions');
@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.dropTableIfExists('session')
+  return knex.schema.dropTableIfExists('session')
 };
