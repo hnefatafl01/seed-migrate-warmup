@@ -8,7 +8,7 @@ exports.seed = (knex, Promise) => {
           repetitions: 10,
           load: 185,
           date: new Date(),
-          user_id: 3
+          user_id: 1
         }),
         knex('session').insert({
           exercise: 'clean',
@@ -16,7 +16,7 @@ exports.seed = (knex, Promise) => {
           repetitions: 3,
           load: 185,
           date: new Date(),
-          user_id: 3
+          user_id: 1
         })
       ]);
     });
